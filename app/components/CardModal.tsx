@@ -69,9 +69,11 @@ export const CardModal = ({
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            isEditable
-              ? onSubmit(cardName.trim(), cardDescription.trim())
-              : handleUpdate();
+            if (isEditable) {
+              onSubmit(cardName.trim(), cardDescription.trim());
+            } else {
+              handleUpdate();
+            }
           }}
         >
           <input
